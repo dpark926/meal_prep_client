@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Switch, Route } from 'react-router-dom'
 import Homepage from '../components/Homepage'
 import RecipeList from '../components/RecipeList'
 import RecipeSearch from '../components/RecipeSearch'
@@ -85,11 +86,11 @@ class RecipesContainer extends Component {
   render() {
     return (
       <div>
-        <RecipeSearch onChange={this.handleChange}/><br/>
-        <Homepage recipeData={this.state.recipeData}/><br/>
-        <RecipeList recipeData={this.state.recipeData} searchTerm={this.state.searchTerm} handleClick={this.handleClick}/><br/>
-        <RecipeNew /><br/>
-        <RecipeShow recipeData={this.state.recipeData} clickedRecipe={this.state.clickedRecipe}/>
+          <Homepage recipeData={this.state.recipeData}/><br/>
+          <RecipeSearch onChange={this.handleChange}/><br/>
+          <RecipeList recipeData={this.state.recipeData} searchTerm={this.state.searchTerm} handleClick={this.handleClick}/><br/>
+          <RecipeNew /><br/>
+          <RecipeShow recipeData={this.state.recipeData} clickedRecipe={this.state.clickedRecipe}/>
       </div>
     )
   }

@@ -2,9 +2,24 @@
   text-align: center;
 }
 
+a {
+  color: black;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+  color: hotpink;
+}
+
 .nav {
   border: 1px solid red;
-
 }
 
 .App-header {
@@ -39,7 +54,17 @@
 }
 
 .nav-categories {
-  display: inline-block
+  display: inline-block;
+  position: relative;
+}
+
+.nav-category {
+  display: inline-block;
+  padding: 10px 40px 10px 40px;
+}
+
+.nav-category:hover {
+  background-color: #c1ffb6
 }
 
 /*Homepage*/

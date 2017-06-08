@@ -11,14 +11,15 @@ function NavBar() {
         </div>
         <div className="logo-space-after"></div>
         <div className='signin'>
-          <p>Log In</p>
-          <p>Sign Up</p>
+          <a href='#'>Log In</a><br/>
+          <a href='#'>Sign Up</a>
         </div>
       </div>
+
       <div className="nav-categories">
-        <p>Categories</p>
-        <p>Meal Planner</p>
-        <p>My Recipe Box</p>
+        <a href='#'><div className='nav-category'>RECIPES</div></a>
+        <a href='#'><div className='nav-category'>MY MEAL PLANNER</div></a>
+        <a href='#'><div className='nav-category'>MY RECIPE BOX</div></a>
       </div>
     </div>
   )
