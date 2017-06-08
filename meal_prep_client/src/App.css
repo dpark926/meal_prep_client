@@ -13,3 +13,104 @@
 .App-intro {
   font-size: large;
 }
+
+/* Recipe Search */
+.recipe-search {
+  border: 1px solid blue;
+}
+
+/* Recipe List */
+.recipe-list {
+  border: 1px solid blue;
+  padding: 20px;
+}
+
+.recipe-box {
+  width: 25%;
+  text-align: left;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid green;
+  display: inline-block;
+  color: black;
+}
+
+/* Recipe New */
+.recipe-new {
+  border: 1px solid blue;
+}
+
+input[type=text] {
+    text-align: center;
+    width: 250px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 0px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 90%;
+}
+
+/* Recipe Show */
+.recipe-show {
+  border: 1px solid blue;
+}
+
+.recipe-upper {
+  margin: 20px;
+  border: 1px solid blue;
+  padding: 20px;
+}
+
+.recipe-show-img {
+  margin: 20px;
+  text-align: center;
+  height: 426px;
+  width: 426px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 1px 1px 1px 1px;
+  display: inline-block;
+}
+
+.recipe-name-ingredient {
+  /*border: 1px solid black;*/
+  width: 40%;
+  display: inline-block;
+  text-align: left;
+  vertical-align: top;
+}
+
+.recipe-name-img {
+  vertical-align: top;
+  /*border: 1px solid red;*/
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: left;
+}
+
+.recipe-ingredient-box {
+  /*border: 1px solid gray;*/
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.recipe-instructions {
+  border: 1px solid green;
+  margin: 20px;
+  padding-left: 10%;
+  text-align: left;
+}
