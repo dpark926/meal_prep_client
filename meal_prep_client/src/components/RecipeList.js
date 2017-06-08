@@ -17,7 +17,7 @@ function recipeList(props) {
   let list = newArray.map((recipe) =>  {
     return(
       <div className="recipe-box">
-        <a href="#"><h3 onClick={props.handleClick}>{recipe.name}</h3></a>
+        <a href="#"><h4 onClick={props.handleClick}>{recipe.name}</h4></a>
         <p>Calories: {recipe.calories}</p>
       </div>
     )
@@ -30,9 +30,10 @@ function recipeList(props) {
       {list}
       <a href='#'>
         <div className="recipe-box">
-          <h3>+ Add a New Recipe</h3>
+          <h4>+ Add a New Recipe</h4>
           <p>+ Add a New Recipe</p>
         </div>
+
       </a>
     </div>
   )

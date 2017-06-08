@@ -15,34 +15,31 @@ function recipeShow(props) {
   console.log(clickedRecipe)
   var list = newArray.map(recipe =>
     (
-      <div className='recipe-name-img'>
-        <h1>{recipe.name}</h1>
-        <h4>Calories: {recipe.calories}</h4>
+    <div className='recipe-upper'>
+      <div className='recipe-show-img'>
+        <img src="https://images.food52.com/XIZIrmKE5lAjl0ENZMIotx8MXaI=/753x502/21be0f49-43e8-4576-b205-41ccc0b1b413--2017-0427_udis-sponsored-post-2_james-ransom-262.jpg" alt="food-pic-sample" height="100%" width="100%"></img>
       </div>
+      <div className='recipe-name-ingredient'>
+        <div className='recipe-name-img'>
+          <h1>{recipe.name}</h1>
+          <h4>Calories: {recipe.calories}</h4>
+        </div>
+        <div className='recipe-ingredient-box'>
+          <h3>Ingredients: </h3>
+        </div>
+      </div>
+      <div className='recipe-instructions'>
+        <h3>Instructions: </h3>
+        <p>{recipe.instructions}</p>
+      </div>
+    </div>
     )
   )
 
   return (
     <div className="recipe-show">
       <h1>Recipe Show</h1>
-
-      <div className='recipe-upper'>
-        <div className='recipe-show-img'>
-          <img src="https://images.food52.com/XIZIrmKE5lAjl0ENZMIotx8MXaI=/753x502/21be0f49-43e8-4576-b205-41ccc0b1b413--2017-0427_udis-sponsored-post-2_james-ransom-262.jpg" alt="food-pic-sample" height="100%" width="100%"></img>
-        </div>
-
-        <div className='recipe-name-ingredient'>
-          {list}
-          <div className='recipe-ingredient-box'>
-            <h3>Ingredients: </h3>
-          </div>
-        </div>
-
-      </div>
-
-      <div className='recipe-instructions'>
-        <h3>Instructions: </h3>
-      </div>
+      {list}
     </div>
   )
 }
