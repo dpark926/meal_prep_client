@@ -1,9 +1,13 @@
 import React from 'react'
+import RecipeSearch from './RecipeSearch'
+import RecipeNew from './RecipeNew'
+import RecipeShow from './RecipeShow'
 
 function recipeList(props) {
   let array = props.recipeData
   let searchTerm = props.searchTerm
   let newArray = []
+  console.log(array)
 
   for (var i = 0; i < array.length; i++) {
     let arrayOfNames = array[i].name.split(" ")
@@ -26,6 +30,7 @@ function recipeList(props) {
 
   return (
     <div className="recipe-list">
+      <RecipeSearch onChange={props.onChange}/><br/>
       <h2>Recipe List</h2>
       {list}
       <a href='#'>
@@ -33,8 +38,9 @@ function recipeList(props) {
           <h4>+ Add a New Recipe</h4>
           <p>+ Add a New Recipe</p>
         </div>
-
       </a>
+      <RecipeShow recipeData={props.recipeData} clickedRecipe={props.clickedRecipe}/><br/>
+      <RecipeNew />
     </div>
   )
 }

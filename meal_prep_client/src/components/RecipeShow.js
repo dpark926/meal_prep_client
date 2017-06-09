@@ -1,6 +1,7 @@
 import React from 'react'
 
 function recipeShow(props) {
+  // debugger
   let array = props.recipeData
   let clickedRecipe = props.clickedRecipe
   let newArray = []
@@ -8,11 +9,11 @@ function recipeShow(props) {
   // console.log(array[0])
 
   for (var i = 0; i < array.length; i++) {
-    if (array[i].name === clickedRecipe) {
+    if (array[i].name === props.clickedRecipe) {
       newArray.push(array[i])
     }
   }
-  console.log(clickedRecipe)
+
   var list = newArray.map(recipe =>
     (
     <div className='recipe-upper'>

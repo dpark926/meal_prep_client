@@ -2,9 +2,6 @@ import React, {Component} from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Homepage from '../components/Homepage'
 import RecipeList from '../components/RecipeList'
-import RecipeSearch from '../components/RecipeSearch'
-import RecipeNew from '../components/RecipeNew'
-import RecipeShow from '../components/RecipeShow'
 
 class RecipesContainer extends Component {
   constructor() {
@@ -65,7 +62,7 @@ class RecipesContainer extends Component {
     console.log(this.state.searchTerm)
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const URL = 'http://localhost:3000/api/v1/recipes'
 
     fetch(URL)
@@ -86,11 +83,12 @@ class RecipesContainer extends Component {
   render() {
     return (
       <div>
-          <Homepage recipeData={this.state.recipeData}/><br/>
-          <RecipeSearch onChange={this.handleChange}/><br/>
-          <RecipeList recipeData={this.state.recipeData} searchTerm={this.state.searchTerm} handleClick={this.handleClick}/><br/>
-          <RecipeNew /><br/>
-          <RecipeShow recipeData={this.state.recipeData} clickedRecipe={this.state.clickedRecipe}/>
+        <Switch>
+          {/* <Homepage recipeData={this.state.recipeData} handleClick={this.handleClick} /><br/> */}
+          {/* < Route path="/" render={() => < Homepage recipeData={this.state.recipeData} handleClick={this.handleClick}/>}/><br/> */}
+          {/* < Route path="/recipes" render={() => < RecipeList searchTerm={this.state.searchTerm} handleClick={this.handleClick} onChange={this.handleChange}/>}/><br/> */}
+          <RecipeList recipeData={this.state.recipeData} searchTerm={this.state.searchTerm} handleClick={this.handleClick} onChange={this.handleChange} clickedRecipe={this.state.clickedRecipe}/><br/>
+        </Switch>
       </div>
     )
   }

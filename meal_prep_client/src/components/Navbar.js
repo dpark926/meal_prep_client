@@ -1,13 +1,14 @@
 import React from 'react'
 import Signup from './Signup'
 import Login from './Login'
+import { Link } from 'react-router-dom'
 
 function NavBar() {
   return (
     <div className='nav'>
       <div className="App-header">
         <div className="logo">
-          <h1>MEAL BUDDY</h1>
+          <Link to='/'><h1>MEAL BUDDY</h1></Link>
         </div>
         <div className="logo-space-after"></div>
         <div className='signin'>
@@ -17,7 +18,7 @@ function NavBar() {
       </div>
 
       <div className="nav-categories">
-        <a href='#'><div className='nav-category'>RECIPES</div></a>
+        <Link to='/recipes'><div className='nav-category'>RECIPES</div></Link>
         <a href='#'><div className='nav-category'>MY MEAL PLANNER</div></a>
         <a href='#'><div className='nav-category'>MY RECIPE BOX</div></a>
       </div>
