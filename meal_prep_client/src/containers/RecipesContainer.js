@@ -1,7 +1,10 @@
 import React, {Component} from 'react'
 import { Switch, Route } from 'react-router-dom'
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
 import Homepage from '../components/Homepage'
 import RecipeList from '../components/RecipeList'
+import Planner from '../components/Planner'
 
 class RecipesContainer extends Component {
   constructor() {
@@ -47,19 +50,47 @@ class RecipesContainer extends Component {
         //   "updated_at": "2017-06-06T20:29:39.569Z"
         // }
       ],
-      clickedRecipe: ''
+      clickedRecipe: '',
+      currentDate: moment(),
+      selectedDate: '',
+      plannerToggle: false
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.handleDate = this.handleDate.bind(this)
+    this.handleToggle = this.handleToggle.bind(this)
   }
 
   handleChange(event) {
     console.log("handleChange!")
+    // console.log("currentDate: " + this.state.currentDate)
     this.setState({
       searchTerm: event.target.value
     })
     console.log(this.state.searchTerm)
+  }
+
+  handleDate(date) {
+    console.log("DATE!")
+    this.setState({
+      currentDate: date,
+      selectedDate: date._d.constructor()
+    })
+    // debugger
+    console.log(date._d) //this is the correct selectedDate
+    console.log("currentDate: " + this.state.currentDate)
+    console.log("date._d.constructor(): " + date._d.constructor())
+    console.log("selectedDate: " + this.state.selectedDate)
+  }
+
+  handleToggle() {
+    console.log("TOGGLE!")
+    // debugger
+    // console.log("currentDate: " + this.state.currentDate)
+    this.setState({
+      plannerToggle: !this.state.plannerToggle
+    })
   }
 
   componentWillMount() {
@@ -83,12 +114,22 @@ class RecipesContainer extends Component {
   render() {
     return (
       <div>
-        <Switch>
+        {/* <Switch> */}
+          <Planner toggleState={this.state.plannerToggle} handleToggle={this.handleToggle}/>
           {/* <Homepage recipeData={this.state.recipeData} handleClick={this.handleClick} /><br/> */}
           {/* < Route path="/" render={() => < Homepage recipeData={this.state.recipeData} handleClick={this.handleClick}/>}/><br/> */}
           {/* < Route path="/recipes" render={() => < RecipeList searchTerm={this.state.searchTerm} handleClick={this.handleClick} onChange={this.handleChange}/>}/><br/> */}
-          <RecipeList recipeData={this.state.recipeData} searchTerm={this.state.searchTerm} handleClick={this.handleClick} onChange={this.handleChange} clickedRecipe={this.state.clickedRecipe}/><br/>
-        </Switch>
+          <RecipeList
+            recipeData={this.state.recipeData}
+            searchTerm={this.state.searchTerm}
+            handleClick={this.handleClick}
+            onChange={this.handleChange}
+            clickedRecipe={this.state.clickedRecipe}
+            currentDate={this.state.currentDate}
+            selectedDate={this.state.selectedDate}
+            onSelect={this.handleDate}
+          /><br/>
+        {/* </Switch> */}
       </div>
     )
   }

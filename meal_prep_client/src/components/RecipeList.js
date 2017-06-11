@@ -39,7 +39,13 @@ function recipeList(props) {
           <p>+ Add a New Recipe</p>
         </div>
       </a>
-      <RecipeShow recipeData={props.recipeData} clickedRecipe={props.clickedRecipe}/><br/>
+      <RecipeShow
+        recipeData={props.recipeData}
+        clickedRecipe={props.clickedRecipe}
+        currentDate={props.currentDate}
+        selectedDate={props.selectedDate}
+        onSelect={props.onSelect}
+      /><br/>
       <RecipeNew />
     </div>
   )

@@ -3,8 +3,7 @@ import React from 'react'
 function Homepage(props) {
   if (props.recipeData.length > 0) {
     let array = props.recipeData
-    console.log(array[0].name)
-
+//
     return (
       <div className='homepage'>
         <h1>Homepage</h1>
