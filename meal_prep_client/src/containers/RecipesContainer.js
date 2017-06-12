@@ -53,13 +53,15 @@ class RecipesContainer extends Component {
       clickedRecipe: '',
       currentDate: moment(),
       selectedDate: '',
-      plannerToggle: false
+      plannerToggle: false,
+      shoppingListToggle: false
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.handleDate = this.handleDate.bind(this)
-    this.handleToggle = this.handleToggle.bind(this)
+    this.handlePlannerToggle = this.handlePlannerToggle.bind(this)
+    this.handleShoppingToggle = this.handleShoppingToggle.bind(this)
   }
 
   handleChange(event) {
@@ -84,12 +86,18 @@ class RecipesContainer extends Component {
     console.log("selectedDate: " + this.state.selectedDate)
   }
 
-  handleToggle() {
+  handlePlannerToggle() {
     console.log("TOGGLE!")
     // debugger
     // console.log("currentDate: " + this.state.currentDate)
     this.setState({
       plannerToggle: !this.state.plannerToggle
+    })
+  }
+
+  handleShoppingToggle() {
+    this.setState({
+      shoppingListToggle: !this.state.shoppingListToggle
     })
   }
 
@@ -115,7 +123,12 @@ class RecipesContainer extends Component {
     return (
       <div>
         {/* <Switch> */}
-          <Planner toggleState={this.state.plannerToggle} handleToggle={this.handleToggle}/>
+          <Planner
+            toggleState={this.state.plannerToggle}
+            handlePlannerToggle={this.handlePlannerToggle}
+            shoppingListState={this.state.shoppingListToggle}
+            shoppingListHandle={this.handleShoppingToggle}
+          />
           {/* <Homepage recipeData={this.state.recipeData} handleClick={this.handleClick} /><br/> */}
           {/* < Route path="/" render={() => < Homepage recipeData={this.state.recipeData} handleClick={this.handleClick}/>}/><br/> */}
           {/* < Route path="/recipes" render={() => < RecipeList searchTerm={this.state.searchTerm} handleClick={this.handleClick} onChange={this.handleChange}/>}/><br/> */}

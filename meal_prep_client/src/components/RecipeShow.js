@@ -34,20 +34,20 @@ function recipeShow(props) {
   var list = newArray.map(recipe =>
     (
     <div className='recipe-upper'>
+      <div className='recipe-name'>
+        <h4>{recipe.name}</h4>
+      </div>
       <div className='recipe-show-img'>
-        <h1>{recipe.name}</h1>
-        <img src="https://images.food52.com/XIZIrmKE5lAjl0ENZMIotx8MXaI=/753x502/21be0f49-43e8-4576-b205-41ccc0b1b413--2017-0427_udis-sponsored-post-2_james-ransom-262.jpg" alt="food-pic-sample" height="100%" width="100%"></img>
+        <img src="https://tastespace.files.wordpress.com/2012/08/dsc_1627.jpg" alt="food-pic-sample" height="100%" width="100%"></img>
       </div>
 
       <div className='recipe-name-ingredient'>
-        <div className='recipe-name-img'>
-          <h4>Calories: {recipe.calories}</h4>
-        </div>
         <div className='recipe-ingredient-box'>
           <h5>INGREDIENTS </h5>
           {ingredientList}
         </div>
         <div className='recipe-instructions'>
+          <h4>Calories: {recipe.calories}</h4>
           <h5>INSTRUCTIONS </h5>
           <p>{recipe.instructions}</p>
         </div>

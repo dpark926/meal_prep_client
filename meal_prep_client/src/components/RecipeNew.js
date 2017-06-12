@@ -6,8 +6,8 @@ function recipeNew() {
       <h1>Add a New Recipe</h1>
       <form>
         <input placeholder="Name"></input>
-        <input placeholder="Instructions"></input>
         <input placeholder="Calories"></input>
+        <textarea placeholder="Instructions"></textarea>
         <input type='submit'></input>
       </form>
     </div>

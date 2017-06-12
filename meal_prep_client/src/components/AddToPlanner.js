@@ -23,8 +23,9 @@ function AddToPlanner(props) {
           <a href="#">DINNER</a>
         </div>
       </div><br/>
-      {props.currentDate._d.constructor()}
-      {props.selectedDate}
+      <p>{props.currentDate._d.constructor()}</p><br/>
+      <p>Selected Date: {props.selectedDate}</p>
+      <p>Selected Meal Time: </p>
     </div>
   )
 }
