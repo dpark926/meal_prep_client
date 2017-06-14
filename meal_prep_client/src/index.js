@@ -11,6 +11,7 @@ ReactDOM.render(
   // <App />,
   <BrowserRouter>
     <App />
+    {/* < Route path="/register" render={() => < Homepage recipeData={this.state.recipeData} handleClick={this.handleClick}/>}/><br/> */}
   </BrowserRouter>,
   document.getElementById('root')
 );

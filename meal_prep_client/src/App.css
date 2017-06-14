@@ -19,38 +19,61 @@ a:hover {
 }
 
 .nav {
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   width: 100%;
+  background-color: yellow;
+  /*position: fixed;*/
 }
 
 .App-header {
-  background-color: yellow;
-  height: 120px;
+  border-bottom: 1px solid black;
+  height: 80px;
 }
 
 .logo {
   color: black;
-  font-size: 2em;
+  font-size: 28px;
   display: inline-block;
   /*border: 1px solid red;*/
   vertical-align: top;
 }
 
+.welcome {
+  /*border: 1px solid red;*/
+  font-size: 14px;
+  padding-right: 10px;
+}
+
 .logo-space-after {
   display: inline-block;
-  width: 30%;
+  width: 45%;
 }
 
 .signin-signup {
   display: inline-block;
   text-align: right;
   /*border: 1px solid red;*/
-  margin-top: 50px;
-  width: 15%;
+  margin-top: 30px;
+  width: 220px;
 }
 
 .login {
   padding-bottom: 10px;
+}
+
+.login-link {
+  padding-bottom: 10px;
+  border-right: 1px solid gray;
+  display: inline-block;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.signup-link {
+  display: inline-block;
+  padding: 10px;
+  /*border: 1px solid red;*/
+  font-size: 12px;
 }
 
 .App-intro {
@@ -76,13 +99,24 @@ a:hover {
   border: 1px solid blue;
 }
 
+.planner-searchbar {
+  background-color: yellow;
+  border: 1px solid red;
+  height: 50px;
+  vertical-align: top;
+}
+
+.planner-button {
+  display: inline-block;
+}
+
 /* Recipe Search */
 .recipe-search {
   padding: 20px;
   border: 1px solid blue;
 }
 
-input[type=text] {
+.recipe-search-bar {
   text-align: center;
   width: 250px;
   box-sizing: border-box;
@@ -97,7 +131,7 @@ input[type=text] {
   transition: width 0.4s ease-in-out;
 }
 
-input[type=text]:focus {
+.recipe-search-bar:focus {
   width: 90%;
 }
 
@@ -244,10 +278,11 @@ input[type=text]:focus {
 /* Planner */
 
 .planner {
-  text-align: right;
-  position: fixed;
+  /*text-align: right;*/
+  display: inline-block;
+  /*position: fixed;*/
   width: 100%;
-  margin: auto;
+  /*margin: auto;*/
 }
 
 table {
@@ -273,6 +308,10 @@ td, th {
   position: fixed;
   width: 100%;
 }
+
+/*.accordion {
+  display: inline-block;
+}*/
 
 .unselected {
   color: gray;

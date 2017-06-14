@@ -1,3 +1,11 @@
+problem solving (as an event planner)
+hobby => creativity
+- took a course of HTML/CSS
+- connected through other ppl
+- found out about bootcamp
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

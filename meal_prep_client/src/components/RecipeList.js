@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import RecipeSearch from './RecipeSearch'
 import RecipeNew from './RecipeNew'
 import RecipeShow from './RecipeShow'
@@ -21,7 +22,7 @@ function recipeList(props) {
   let list = newArray.map((recipe) =>  {
     return(
       <div className="recipe-box">
-        <a href="#"><h4 onClick={props.handleClick}>{recipe.name}</h4></a>
+        <Link to={`/recipes/${recipe.id}`}><h4 onClick={props.handleClick}>{recipe.name}</h4></Link>
         <p>Calories: {recipe.calories}</p>
       </div>
     )
@@ -33,18 +34,20 @@ function recipeList(props) {
       <RecipeSearch onChange={props.onChange}/><br/>
       <h2>Recipe List</h2>
       {list}
-      <a href='#'>
+      <Link to='/newrecipe'>
         <div className="recipe-box">
           <h4>+ Add a New Recipe</h4>
           <p>+ Add a New Recipe</p>
         </div>
-      </a>
+      </Link>
       <RecipeShow
         recipeData={props.recipeData}
         clickedRecipe={props.clickedRecipe}
         currentDate={props.currentDate}
         selectedDate={props.selectedDate}
         onSelect={props.onSelect}
+        selectedMealTime={props.selectedMealTime}
+        handleMealTime={props.handleMealTime}
       /><br/>
       <RecipeNew />
     </div>

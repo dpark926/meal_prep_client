@@ -64,6 +64,8 @@ function recipeShow(props) {
         currentDate={props.currentDate}
         selectedDate={props.selectedDate}
         onSelect={props.onSelect}
+        selectedMealTime={props.selectedMealTime}
+        handleMealTime={props.handleMealTime}
       />
     </div>
   )

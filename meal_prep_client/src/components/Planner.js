@@ -102,7 +102,7 @@ function Planner(props) {
       <div className="planner">
         <button className="accordion" onClick={props.handlePlannerToggle}>Hide Calendar</button>
         <table>
-          <tr><td></td></tr>
+
           {week1}
 
           <tr>

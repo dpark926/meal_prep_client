@@ -18,14 +18,14 @@ function AddToPlanner(props) {
       <div className="dropdown">
         <button className="dropbtn">SELECT MEAL TIME</button>
         <div className="dropdown-content">
-          <a href="#">BREAKFAST</a>
-          <a href="#">LUNCH</a>
-          <a href="#">DINNER</a>
+          <a href="#" onClick={props.handleMealTime}>BREAKFAST</a>
+          <a href="#" onClick={props.handleMealTime}>LUNCH</a>
+          <a href="#" onClick={props.handleMealTime}>DINNER</a>
         </div>
       </div><br/>
       <p>{props.currentDate._d.constructor()}</p><br/>
       <p>Selected Date: {props.selectedDate}</p>
-      <p>Selected Meal Time: </p>
+      <p>Selected Meal Time: {props.selectedMealTime}</p>
     </div>
   )
 }
