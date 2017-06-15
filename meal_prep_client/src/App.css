@@ -84,6 +84,10 @@ a:hover {
   display: inline-block;
 }
 
+.recipe-link {
+  display: inline-block;
+}
+
 .nav-category {
   display: inline-block;
   width: 160px;
@@ -96,13 +100,13 @@ a:hover {
 
 /*Homepage*/
 .homepage {
-  border: 1px solid blue;
+  /*border: 1px solid blue;*/
 }
 
 .planner-searchbar {
   background-color: yellow;
-  border: 1px solid red;
-  height: 50px;
+  /*border: 1px solid red;*/
+  height: 40px;
   vertical-align: top;
 }
 
@@ -112,8 +116,7 @@ a:hover {
 
 /* Recipe Search */
 .recipe-search {
-  padding: 20px;
-  border: 1px solid blue;
+  /*border: 1px solid blue;*/
 }
 
 .recipe-search-bar {
@@ -122,11 +125,11 @@ a:hover {
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 20px;
-  font-size: 16px;
+  font-size: 14px;
   background-color: white;
   background-position: 10px 10px;
   background-repeat: no-repeat;
-  padding: 12px 20px 12px 0px;
+  padding: 8px 20px 8px 0px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
 }
@@ -137,7 +140,7 @@ a:hover {
 
 /* Recipe List */
 .recipe-list {
-  border: 1px solid blue;
+  /*border: 1px solid blue;*/
   padding: 20px;
 }
 
@@ -146,7 +149,7 @@ a:hover {
   text-align: left;
   margin: 10px;
   padding: 20px;
-  border: 1px solid green;
+  border: 1px solid gray;
   display: inline-block;
   color: black;
 }
@@ -163,25 +166,25 @@ a:hover {
 
 /* Recipe New */
 .recipe-new {
-  border: 1px solid blue;
+  /*border: 1px solid blue;*/
   padding: 20px;
 }
 
 /* Recipe Show */
 .recipe-show {
-  border: 1px solid blue;
+  /*border: 1px solid blue;*/
 }
 
 .recipe-upper {
   margin: 20px;
-  border: 1px solid green;
+  /*border: 1px solid green;*/
   padding: 20px;
 }
 
 .recipe-show-img {
   text-align: center;
-  height: 410px;
-  width: 860px;
+  /*height: 410px;
+  width: 860px;*/
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 4px;
@@ -194,8 +197,8 @@ a:hover {
 }
 
 .recipe-name-ingredient {
-  border: 1px solid black;
-  width: 860px;
+  /*border: 1px solid black;*/
+  /*width: 860px;*/
   text-align: left;
   vertical-align: top;
   margin: auto;
@@ -211,22 +214,26 @@ a:hover {
 
 .recipe-ingredient-box {
   width: 25%;
-  border: 1px solid gray;
-  margin-left: 20px;
+  /*border: 1px solid gray;*/
+  margin-left: 7%;
   display: inline-block;
+}
+
+.recipe-ingredient-box p {
+  font-size: 14px;
 }
 
 .recipe-instructions {
   vertical-align: top;
-  border: 1px solid green;
-  width: 65%;
-  margin-right: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  /*border: 1px solid green;*/
+  width: 60%;
   text-align: left;
   display: inline-block;
 }
 
+.recipe-instructions p {
+  font-size: 14px;
+}
 /*AddToPlanner*/
 
 .dropbtn {
@@ -278,17 +285,31 @@ a:hover {
 /* Planner */
 
 .planner {
-  /*text-align: right;*/
-  display: inline-block;
+  /*text-align: left;*/
+  /*display: inline-block;*/
   /*position: fixed;*/
   width: 100%;
   /*margin: auto;*/
+  /*border: 1px solid red;*/
+}
+
+.table {
+  background-color: black;
+  opacity: 0.5;
+  padding: 3% .5%;
+
+}
+
+.planner-button {
+  text-align: left;
+  /*border: 1px solid red;*/
+  display: inline-block;
 }
 
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 90%;
   background-color: #b6fff4;
   margin: auto;
 }
@@ -304,14 +325,20 @@ td, th {
 }
 
 .grocery {
-  text-align: right;
-  position: fixed;
   width: 100%;
 }
 
-/*.accordion {
-  display: inline-block;
-}*/
+.accordion {
+  background-color: #20b2aa; /* Green */
+  border: 2px solid white;
+  color: white;
+  padding: 5px 28px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 16px;
+  /*text-align: center;*/
+  /*display: inline-block;*/
+}
 
 .unselected {
   color: gray;

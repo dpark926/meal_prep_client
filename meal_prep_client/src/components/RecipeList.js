@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Route, Switch, Link } from 'react-router-dom'
 import RecipeSearch from './RecipeSearch'
 import RecipeNew from './RecipeNew'
 import RecipeShow from './RecipeShow'
@@ -34,22 +34,35 @@ function recipeList(props) {
       <RecipeSearch onChange={props.onChange}/><br/>
       <h2>Recipe List</h2>
       {list}
-      <Link to='/newrecipe'>
+      <Link to='/recipes/new'>
         <div className="recipe-box">
           <h4>+ Add a New Recipe</h4>
           <p>+ Add a New Recipe</p>
         </div>
       </Link>
-      <RecipeShow
-        recipeData={props.recipeData}
-        clickedRecipe={props.clickedRecipe}
-        currentDate={props.currentDate}
-        selectedDate={props.selectedDate}
-        onSelect={props.onSelect}
-        selectedMealTime={props.selectedMealTime}
-        handleMealTime={props.handleMealTime}
-      /><br/>
-      <RecipeNew />
+
+        <RecipeShow
+          recipeData={props.recipeData}
+          clickedRecipe={props.clickedRecipe}
+          currentDate={props.currentDate}
+          selectedDate={props.selectedDate}
+          onSelect={props.onSelect}
+          selectedMealTime={props.selectedMealTime}
+          handleMealTime={props.handleMealTime}
+          addToPlanner={props.addToPlanner}
+        /><br/>
+        {/* <RecipeNew /> */}
+        {/* < Route path='/recipes' render={() => < RecipeShow
+            recipeData={props.recipeData}
+            clickedRecipe={props.clickedRecipe}
+            currentDate={props.currentDate}
+            selectedDate={props.selectedDate}
+            onSelect={props.onSelect}
+            selectedMealTime={props.selectedMealTime}
+            handleMealTime={props.handleMealTime}
+          />
+        }/> */}
+        < Route path='/recipes/new' component={RecipeNew} />
     </div>
   )
 }

@@ -5,6 +5,7 @@ import moment from 'moment';
 import Homepage from '../components/Homepage'
 import RecipeList from '../components/RecipeList'
 import Planner from '../components/Planner'
+import axios from 'axios'
 
 class RecipesContainer extends Component {
   constructor() {
@@ -19,7 +20,7 @@ class RecipesContainer extends Component {
       selectedMealTime: '',
       plannerToggle: false,
       shoppingListToggle: false,
-
+      plannerData: []
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -28,7 +29,7 @@ class RecipesContainer extends Component {
     this.handleMealTime = this.handleMealTime.bind(this)
     this.handlePlannerToggle = this.handlePlannerToggle.bind(this)
     this.handleShoppingToggle = this.handleShoppingToggle.bind(this)
-
+    this.addToPlanner = this.addToPlanner.bind(this)
   }
 
   handleChange(event) {
@@ -44,7 +45,7 @@ class RecipesContainer extends Component {
     console.log("DATE!")
     this.setState({
       currentDate: date,
-      selectedDate: date._d.toString()
+      selectedDate: date._d.toString().slice(0, 15)
     })
   }
 
@@ -53,7 +54,6 @@ class RecipesContainer extends Component {
     this.setState({
       selectedMealTime: event.target.innerText
     })
-    debugger
   }
 
   handlePlannerToggle() {
@@ -89,8 +89,9 @@ class RecipesContainer extends Component {
     })
   }
 
-  // addRecipeToPlanner() {
-  //   return fetch("http://localhost:3000/api/v1/planner", {
+  // addToPlanner() {
+  //   e.preventDefault()
+  //   return fetch("http://localhost:3000/api/v1/planner-dates", {
   //     headers: {
   //       'Accept': 'application/json',
   //       'Content-Type': 'application/json',
@@ -101,20 +102,49 @@ class RecipesContainer extends Component {
   //   }).then( res => res.json() )
   // }
 
+  addToPlanner(){
+    axios.post('http://localhost:3000/api/v1/planner_dates', {
+      planner_date: {
+        date: this.state.selectedDate,
+        user_id: localStorage.user,
+        recipe_id: 1,
+        meal_type: this.state.selectedMealTime
+      }
+    }).then(res => {
+      console.log("Planner!!!")
+      console.log("Planner :" + res);
+      localStorage.setItem("wtf", res.data.user)
+      localStorage.setItem("token", res.data.token)
+      // localStorage.setItem("username", res.data.username)
+    })
+      .then( () => this.props.history.push('/recipes'))
+      .catch((error) => console.log(error.response) )
+
+    fetch('http://localhost:3000/api/v1/planner_dates')
+    .then(response => response.json())
+    .then(jsonResponse => this.setState({
+      plannerData: jsonResponse
+    }))
+  }
+
   render() {
 
     return (
       <div>
         {/* <Switch> */}
           <div className='planner-searchbar'>
-            <Link to='/recipes'><div className='nav-category'>RECIPES</div></Link>
             <div className="planner-button">
               <Planner
                 toggleState={this.state.plannerToggle}
                 handlePlannerToggle={this.handlePlannerToggle}
                 shoppingListState={this.state.shoppingListToggle}
                 shoppingListHandle={this.handleShoppingToggle}
+                plannerData={this.state.plannerData}
               />
+            </div>
+
+            <div className='recipe-link'>
+              <Link to='/recipes'><div className='nav-category'>RECIPES</div></Link>
             </div>
           </div>
           {/* <Login
@@ -137,6 +167,7 @@ class RecipesContainer extends Component {
             onSelect={this.handleDate}
             selectedMealTime={this.state.selectedMealTime}
             handleMealTime={this.handleMealTime}
+            addToPlanner={this.addToPlanner}
           />}/><br/>
           {/* <RecipeList
             recipeData={this.state.recipeData}
