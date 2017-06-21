@@ -1,8 +1,14 @@
+import '../styles/recipeList.css';
 import React from 'react'
 import { Route, Switch, Link } from 'react-router-dom'
 import RecipeSearch from './RecipeSearch'
-import RecipeNew from './RecipeNew'
 import RecipeShow from './RecipeShow'
+import img1 from '../styles/img/recipeimgs/img-09.jpg'
+import img2 from '../styles/img/recipeimgs/img-10.jpg'
+import img3 from '../styles/img/recipeimgs/img-11.jpg'
+import img4 from '../styles/img/recipeimgs/img-12.jpg'
+import img5 from '../styles/img/recipeimgs/img-13.jpg'
+import addIcon from '../styles/img/recipeimgs/1497857929_add.png'
 
 function recipeList(props) {
   let array = props.recipeData
@@ -22,24 +28,63 @@ function recipeList(props) {
   let list = newArray.map((recipe) =>  {
     return(
       <div className="recipe-box">
-        <Link to={`/recipes/${recipe.id}`}><h4 onClick={props.handleClick}>{recipe.name}</h4></Link>
-        <p>Calories: {recipe.calories}</p>
+        <div className="recipe-list-img">
+          <img src={img1}></img>
+        </div>
+        <div className="recipe-list-title">
+          <Link to={`/recipes/${recipe.id}`}><h4 onClick={(event) => props.handleClick(event, recipe.id)}>{recipe.name}</h4></Link>
+          <p>Calories: {recipe.calories}</p>
+        </div>
       </div>
     )
   })
   // debugger
 
-  return (
-    <div className="recipe-list">
-      <RecipeSearch onChange={props.onChange}/><br/>
-      <h2>Recipe List</h2>
-      {list}
-      <Link to='/recipes/new'>
-        <div className="recipe-box">
-          <h4>+ Add a New Recipe</h4>
-          <p>+ Add a New Recipe</p>
-        </div>
-      </Link>
+  if (!localStorage.getItem('token')) {
+    return (
+      <div className="recipe-list">
+        <RecipeSearch onChange={props.onChange}/><br/>
+        <h2>Recipe List</h2>
+        {list}
+
+        <RecipeShow
+          recipeData={props.recipeData}
+          clickedRecipe={props.clickedRecipe}
+        /><br/>
+      </div>
+    )
+  } else {
+    return (
+      <div className="recipe-list">
+        <RecipeSearch onChange={props.onChange}/><br/>
+        <h2>Recipe List</h2>
+        {list}
+        <Link to='/recipes/new'>
+          <div className="recipe-box">
+            <div className="recipe-blank-img">
+              <img src={addIcon}></img>
+            </div>
+            <div className="recipe-list-title">
+              <h4>+ Add a New Recipe</h4>
+              {/* <p>+ Add a New Recipe</p> */}
+            </div>
+          </div>
+        </Link>
+
+        {/* <Switch>
+          <Route exact path='/recipes/1' render={ ({match}) =>
+            <RecipeShow
+            recipeData={props.recipeData}
+            clickedRecipe={props.clickedRecipe}
+            currentDate={props.currentDate}
+            selectedDate={props.selectedDate}
+            onSelect={props.onSelect}
+            selectedMealTime={props.selectedMealTime}
+            handleMealTime={props.handleMealTime}
+            addToPlanner={props.addToPlanner}/>
+          }/>
+          <Route path='/recipes/new' component={RecipeNew} />
+        </Switch> */}
 
         <RecipeShow
           recipeData={props.recipeData}
@@ -51,20 +96,10 @@ function recipeList(props) {
           handleMealTime={props.handleMealTime}
           addToPlanner={props.addToPlanner}
         /><br/>
-        {/* <RecipeNew /> */}
-        {/* < Route path='/recipes' render={() => < RecipeShow
-            recipeData={props.recipeData}
-            clickedRecipe={props.clickedRecipe}
-            currentDate={props.currentDate}
-            selectedDate={props.selectedDate}
-            onSelect={props.onSelect}
-            selectedMealTime={props.selectedMealTime}
-            handleMealTime={props.handleMealTime}
-          />
-        }/> */}
-        < Route path='/recipes/new' component={RecipeNew} />
-    </div>
-  )
+
+      </div>
+    );
+  }
 }
 
 export default recipeList

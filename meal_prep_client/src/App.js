@@ -1,47 +1,38 @@
 import React, { Component } from 'react';
-import './App.css';
+import './styles/App.css';
 import NavBar from './components/Navbar'
-import RecipesContainer from './containers/RecipesContainer'
+import LoggedInContainer from './containers/LoggedInContainer'
+import LoggedOutContainer from './containers/LoggedOutContainer'
 import Login from './components/Login'
 import Signup from './components/Signup'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
+
+import ReactPerfTool from 'react-perf-tool';
+import Perf from 'react-addons-perf';
+import 'react-perf-tool/lib/styles.css';
 
 class App extends Component {
   render() {
     if (!localStorage.getItem('token')) {
       return (
         <div className="App">
-          <NavBar /><br/>
-          < Redirect to='/login' />
-          {/* < Route path="/login" component={Login}/><br/> */}
-          <Switch>
-          < Route exact path="/signup" component={Signup}/>
-          < Route path="/" component={Login}/><br/>
-          </Switch>
+          <NavBar />
+          <Redirect to='/' />
+          <LoggedOutContainer />
+          <Route path="/login" component={Login}/><br/>
+          <Route path="/signup" component={Signup}/>
+          {/* <ReactPerfTool perf={Perf} /> */}
         </div>
       )
-      // return (
-      //   <div className="App">
-      //     <NavBar /><br/>
-      //     {/* <Switch>
-      //       < Route path="/login" component={Login}/><br/>
-      //       < Route path="/register" component={Signup}/><br/>
-      //       < Route path="/recipes" component={RecipesContainer} />
-      //     </Switch> */}
-      //     <RecipesContainer />
-      //   </div>
-      // )
     } else {
       return (
         <div className="App">
           <NavBar />
-          < Redirect to='/' />
-          {/* <Switch>
-            < Route path="/login" component={Login}/><br/>
-            < Route path="/register" component={Signup}/><br/>
-            < Route path="/recipes" component={RecipesContainer} />
-          </Switch> */}
-          <RecipesContainer />
+          <div className="below-nav">
+            <Redirect to='/' />
+            <LoggedInContainer />
+          </div>
+          {/* <ReactPerfTool perf={Perf} /> */}
         </div>
       );
     }

@@ -18,7 +18,7 @@ class Login extends Component {
   handleSubmit(e) {
     e.preventDefault()
     console.log("Name and Password Submitted!!!")
-    // debugger
+
     fetch("http://localhost:3000/api/v1/signin", {
       headers: {
         'Accept': 'application/json',
@@ -28,10 +28,11 @@ class Login extends Component {
       body: JSON.stringify(this.state)
     }).then( res => res.json() )
     .then( (res) => {
-      localStorage.setItem("user", res.user.name)
+      // debugger
+      localStorage.setItem("user_name", res.user.name)
+      localStorage.setItem("user_id", res.user.id)
       localStorage.setItem("token", res.token)
       this.props.history.push('/')
-      // debugger
       console.log('response: ', res)
     } )
     .catch( (error) => console.log(error.response))

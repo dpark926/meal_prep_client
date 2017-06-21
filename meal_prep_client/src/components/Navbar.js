@@ -15,7 +15,12 @@ function NavBar() {
           <div className="logo">
             <Link to='/'><h4>MEAL BUDDY</h4></Link>
           </div>
-          <div className="logo-space-after"></div>
+          <div className="logo-space-after">
+            <div className='recipe-link'>
+              <Link to='/recipes'><div className='nav-category'>RECIPES</div></Link>
+              <Link to='/recipes'><div className='nav-category'>CATEGORY</div></Link>
+            </div>
+          </div>
           <div className="signin-signup">
             <div className='login-link'>
               <Link to='/login'>LOG IN</Link>
@@ -34,13 +39,19 @@ function NavBar() {
           <div className="logo">
             <Link to='/'><h4>MEAL BUDDY</h4></Link>
           </div>
-          <div className="logo-space-after"></div>
+          <div className="logo-space-after">
+            <div className='recipe-link'>
+              <Link to='/recipes'><div className='nav-category'>RECIPES</div></Link>
+              <Link to='/recipes'><div className='nav-category'>CATEGORY</div></Link>
+            </div>
+          </div>
           <div className="signin-signup">
-            <div className='welcome'>WELCOME, {localStorage.user}</div>
+            <div className='welcome'>WELCOME, {localStorage.user_name.toUpperCase()}</div>
             <div className='signup-link'>
               <Link to='/logout' onClick={clearLocalStorage}>LOG OUT</Link>
             </div>
           </div>
+
         </div>
       </div>
     )

@@ -1,0 +1,166 @@
+/* Recipe Show */
+.recipe-show {
+  /*border: 1px solid blue;*/
+}
+
+.recipe-upper {
+  margin: 20px;
+  /*border: 1px solid green;*/
+  padding: 20px;
+}
+
+.recipe-show-img {
+  text-align: center;
+  /*height: 410px;
+  width: 860px;*/
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 1px 1px 1px 1px;
+  display: inline-block;
+}
+
+.recipe-name-ingredient {
+  /*border: 1px solid black;*/
+  /*width: 860px;*/
+  text-align: left;
+  vertical-align: top;
+  margin: auto;
+}
+
+.recipe-name {
+  /*border: 1px solid red;*/
+  margin: auto;
+  padding-left: 20px;
+  width: 860px;
+  text-align: left;
+  font-size: 22px;
+}
+
+.recipe-ingredient-box {
+  width: 25%;
+  /*border: 1px solid gray;*/
+  padding-left: 2%;
+  margin-left: 7%;
+  display: inline-block;
+}
+
+.recipe-ingredient-box p {
+  font-size: 16px;
+}
+
+.recipe-instructions {
+  vertical-align: top;
+  /*border: 1px solid green;*/
+  width: 60%;
+  text-align: left;
+  padding-right: 20px;
+  display: inline-block;
+}
+
+.recipe-instructions p {
+  font-size: 16px;
+  /*border: 1px solid green;*/
+  width: 95%;
+  line-height: 150%;
+}
+
+.datepicker {
+  font-size: 16px;
+  width: 140px;
+  text-align: center;
+  padding: 5px;
+  background-color: white;
+}
+
+/*AddToPlanner*/
+.AddToPlanner {
+  /*border: 1px solid red;*/
+}
+
+.plannerSubmit {
+  border: none;
+  background-color: #81ccae;
+  width: 320px;
+  font-size: 16px;
+  padding: 16px;
+  color: white;
+}
+
+.plannerSubmit:hover {
+  background-color: #c1ffb6;
+  color: black;
+  cursor: pointer;
+}
+
+.dropbtn-unselected {
+  background-color: hotpink;
+  width: 150px;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn-unselected:hover {
+  background-color: #c1ffb6;
+  color: black;
+}
+
+.dropbtn-selected {
+  background-color: #81ccae;
+  width: 150px;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn-selected:hover {
+  background-color: #c1ffb6;
+  color: black;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}

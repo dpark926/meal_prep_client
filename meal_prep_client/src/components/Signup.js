@@ -15,11 +15,6 @@ class Signup extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  // handleSignUp(){
-  //   // console.log(this.state.username);
-  //
-  // }
-
   handleChange(prop, value){
     this.setState({
       [prop]: value
@@ -36,9 +31,12 @@ class Signup extends Component {
       }
     }).then(res => {
       console.log(res);
-      localStorage.setItem("wtf", res.data.user)
+      // debugger
+      localStorage.setItem("user_name", res.data.user.name)
+      localStorage.setItem("user_id", res.data.user.id)
       localStorage.setItem("token", res.data.token)
-      // localStorage.setItem("username", res.data.username)
+      // localStorage.setItem("user_name", res.data.user)
+      // localStorage.setItem("token", res.data.token)
     })
       .then( () => this.props.history.push('/'))
       .catch((error) => console.log(error.response) )

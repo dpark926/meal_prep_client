@@ -1,0 +1,102 @@
+/* Planner */
+
+.planner {
+  /*text-align: left;*/
+  /*display: inline-block;*/
+  /*position: fixed;*/
+  width: 100%;
+  /*margin: auto;*/
+  /*border: 1px solid red;*/
+}
+
+.table {
+  width: 100%;
+  background-color:rgba(0,0,0,0.4);
+  padding-bottom: 4%;
+  padding-top: 3px;
+  /*margin-left: -100px;*/
+}
+
+.week-range {
+  color: white;
+}
+
+.planner-button {
+  /*text-align: left;*/
+  /*border: 1px solid red;*/
+  margin-top: 4px;
+  display: inline-block;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+  background-color: white;
+  margin: auto;
+  /*margin-left: -100px;*/
+}
+
+.table-categories th{
+  text-align: center;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 15px 8px 15px 8px;
+  width: 10%;
+  font-size: 14px;
+}
+
+td {
+  height: 50px;
+  text-align: center;
+}
+
+th {
+  color: #7faec3;
+}
+
+.grocery {
+  width: 100%;
+}
+
+.accordion {
+  background-color: #81ccae; /* Green */
+  border: 2px solid white;
+  color: white;
+  padding: 5px 28px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 16px;
+  width: 200px;
+  /*text-align: center;*/
+  /*display: inline-block;*/
+}
+
+.unselected {
+  color: gray;
+  background-color: white;
+}
+
+.selected {
+  background-color: hotpink;
+}
+
+.grocery-list {
+  background-color: #c1ffb6;
+  text-align: center;
+  width: 60%;
+  padding: 20px;
+  margin: auto;
+}
+
+.grocery-table {
+  width: 90%;
+  background-color: #c1ffb6;
+}
+
+/*.planner table td div {
+  border: 1px solid #dddddd;
+}*/
