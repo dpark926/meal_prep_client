@@ -5,15 +5,17 @@
   /*display: inline-block;*/
   /*position: fixed;*/
   width: 100%;
+  z-index: 2;
   /*margin: auto;*/
   /*border: 1px solid red;*/
 }
 
 .table {
   width: 100%;
-  background-color:rgba(0,0,0,0.4);
+  background-color:rgba(0,0,0,0.7);
   padding-bottom: 4%;
   padding-top: 3px;
+  z-index: 100;
   /*margin-left: -100px;*/
 }
 

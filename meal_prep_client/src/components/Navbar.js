@@ -10,7 +10,7 @@ function clearLocalStorage() {
 function NavBar() {
   if (!localStorage.getItem('token')) {
     return (
-      <div className='nav'>
+      <div className='nav animated fadeInLeft'>
         <div className="App-header">
           <div className="logo">
             <Link to='/'><h4>MEAL BUDDY</h4></Link>
@@ -34,7 +34,7 @@ function NavBar() {
     )
   } else {
     return (
-      <div className='nav'>
+      <div className='nav animated fadeInLeft'>
         <div className="App-header">
           <div className="logo">
             <Link to='/'><h4>MEAL BUDDY</h4></Link>

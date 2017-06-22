@@ -8,6 +8,17 @@ import img2 from '../styles/img/recipeimgs/img-10.jpg'
 import img3 from '../styles/img/recipeimgs/img-11.jpg'
 import img4 from '../styles/img/recipeimgs/img-12.jpg'
 import img5 from '../styles/img/recipeimgs/img-13.jpg'
+import img6 from '../styles/img/recipeimgs/img-14.jpg'
+import img7 from '../styles/img/recipeimgs/img-15.jpg'
+import img8 from '../styles/img/recipeimgs/img-24.jpg'
+import img9 from '../styles/img/recipeimgs/img-17.jpg'
+import img10 from '../styles/img/recipeimgs/img-18.jpg'
+import img11 from '../styles/img/recipeimgs/img-19.jpg'
+import img12 from '../styles/img/recipeimgs/img-20.jpg'
+import img13 from '../styles/img/recipeimgs/img-21.jpg'
+import img14 from '../styles/img/recipeimgs/img-22.jpg'
+import img15 from '../styles/img/recipeimgs/img-23.jpg'
+import img16 from '../styles/img/recipeimgs/img-24.jpg'
 import addIcon from '../styles/img/recipeimgs/1497857929_add.png'
 
 function recipeList(props) {
@@ -25,15 +36,20 @@ function recipeList(props) {
     }
   }
 
-  let list = newArray.map((recipe) =>  {
+  let imgArray = [
+    img1, img2, img3, img4, img5, img6, img7, img8,
+    img9, img10, img11, img12, img13, img14, img15, img16
+  ]
+
+  let list = newArray.map((recipe, i) =>  {
     return(
       <div className="recipe-box">
         <div className="recipe-list-img">
-          <img src={img1}></img>
+          <img src={imgArray[i]}></img>
         </div>
         <div className="recipe-list-title">
-          <Link to={`/recipes/${recipe.id}`}><h4 onClick={(event) => props.handleClick(event, recipe.id)}>{recipe.name}</h4></Link>
-          <p>Calories: {recipe.calories}</p>
+          <Link to={`/recipes/${recipe.id}`} id={recipe.id}><h4 onClick={(event) => props.handleClick(event, recipe.id)}>{recipe.name}</h4></Link>
+          {/* <p>Calories: {recipe.calories}</p> */}
         </div>
       </div>
     )
@@ -44,7 +60,7 @@ function recipeList(props) {
     return (
       <div className="recipe-list">
         <RecipeSearch onChange={props.onChange}/><br/>
-        <h2>Recipe List</h2>
+        {/* <h2>Recipe List</h2> */}
         {list}
 
         <RecipeShow
@@ -57,7 +73,7 @@ function recipeList(props) {
     return (
       <div className="recipe-list">
         <RecipeSearch onChange={props.onChange}/><br/>
-        <h2>Recipe List</h2>
+        {/* <h2>Recipe List</h2> */}
         {list}
         <Link to='/recipes/new'>
           <div className="recipe-box">

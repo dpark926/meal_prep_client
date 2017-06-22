@@ -21,8 +21,9 @@ a:hover {
 .nav {
   /*border: 1px solid red;*/
   width: 100%;
-  background-color: #f1f5e9;
+  background-color: #ffeead;
   position: fixed;
+  z-index: 200;
 }
 
 .below-nav {
@@ -30,13 +31,13 @@ a:hover {
 }
 
 .App-header {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #999999;
   height: 80px;
   /*position: fixed;*/
 }
 
 .logo {
-  color: black;
+  color: #999999;
   font-size: 28px;
   display: inline-block;
   /*border: 1px solid red;*/

@@ -47,12 +47,12 @@ class Signup extends Component {
       <div className="signup">
         <h1>Sign Up</h1>
         <form onSubmit={this.handleSubmit}>
-          <input type='text' value={this.state.name} onChange={ e => this.handleChange('name', e.target.value)} placeholder="Name"></input><br/>
-          <p>Name: {this.state.name}</p>
-          <input type='text' value={this.state.email} onChange={ e => this.handleChange('email', e.target.value)} placeholder="Email"></input><br/>
-          <p>Email: {this.state.email}</p>
-          <input type='text' value={this.state.password} onChange={ e => this.handleChange('password', e.target.value)} placeholder="Password"></input><br/>
-          <p>Password: {this.state.password}</p>
+          <input type='text' value={this.state.name} onChange={ e => this.handleChange('name', e.target.value)} placeholder="Name"></input><br/><br/><br/>
+          {/* <p>Name: {this.state.name}</p> */}
+          <input type='text' value={this.state.email} onChange={ e => this.handleChange('email', e.target.value)} placeholder="Email"></input><br/><br/><br/>
+          {/* <p>Email: {this.state.email}</p> */}
+          <input type='text' value={this.state.password} onChange={ e => this.handleChange('password', e.target.value)} placeholder="Password"></input><br/><br/><br/>
+          {/* <p>Password: {this.state.password}</p> */}
           <input type='submit'></input>
         </form>
       </div>

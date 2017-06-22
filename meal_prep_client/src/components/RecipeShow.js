@@ -2,6 +2,22 @@ import '../styles/recipeShow.css';
 import React from 'react'
 import AddToPlanner from './AddToPlanner'
 import moment from 'moment';
+import img1 from '../styles/img/recipeimgs/show1.jpg'
+import img2 from '../styles/img/recipeimgs/show2.jpg'
+import img3 from '../styles/img/recipeimgs/show3.jpg'
+import img4 from '../styles/img/recipeimgs/show4.jpg'
+import img5 from '../styles/img/recipeimgs/show5.jpg'
+import img6 from '../styles/img/recipeimgs/show6.jpg'
+import img7 from '../styles/img/recipeimgs/show7.jpg'
+import img8 from '../styles/img/recipeimgs/show8.jpg'
+import img9 from '../styles/img/recipeimgs/show9.jpg'
+import img10 from '../styles/img/recipeimgs/show10.jpg'
+import img11 from '../styles/img/recipeimgs/show11.jpg'
+import img12 from '../styles/img/recipeimgs/show12.jpg'
+import img13 from '../styles/img/recipeimgs/show13.jpg'
+import img14 from '../styles/img/recipeimgs/show14.jpg'
+import img15 from '../styles/img/recipeimgs/show15.jpg'
+import img16 from '../styles/img/recipeimgs/show15.jpg'
 
 function recipeShow(props) {
   // debugger
@@ -34,7 +50,12 @@ function recipeShow(props) {
   // debugger
   // console.log(ingredientList)
 
-  var list = newArray.map(recipe =>
+  let imgArray = [
+    img1, img2, img3, img4, img5, img6, img7, img8,
+    img9, img10, img11, img12, img13, img14, img15, img16
+  ]
+
+  var list = newArray.map( (recipe, i) =>
     (
     <div className='recipe-upper'>
       <div className='recipe-name'>
@@ -42,7 +63,7 @@ function recipeShow(props) {
         <p>{recipe.name.toUpperCase()}</p>
       </div>
       <div className='recipe-show-img'>
-        <img src="https://tastespace.files.wordpress.com/2012/08/dsc_1627.jpg" alt="food-pic-sample" height="100%" width="100%"></img>
+        <img src={imgArray[i]} alt="food-pic-sample" height="100%" width="100%"></img>
       </div>
 
       <div className='recipe-name-ingredient'>
@@ -51,8 +72,8 @@ function recipeShow(props) {
           {ingredientList}
         </div>
         <div className='recipe-instructions'>
-          <h4>Calories: {recipe.calories}</h4>
-          <p>Recipe ID: {recipe.id}</p>
+          {/* <h4>Calories: {recipe.calories}</h4> */}
+          {/* <p>Recipe ID: {recipe.id}</p> */}
           <h5>INSTRUCTIONS </h5>
           <p>{recipe.instructions}</p>
         </div>
@@ -64,14 +85,14 @@ function recipeShow(props) {
   if (!localStorage.getItem('token')) {
     return (
       <div className="recipe-show">
-        <h1>Recipe Show</h1>
+        {/* <h1>Recipe Show</h1> */}
         {list}
       </div>
     )
   } else {
     return (
       <div className="recipe-show">
-        <h1>Recipe Show</h1>
+        {/* <h1>Recipe Show</h1> */}
         {list}
         <AddToPlanner
           currentDate={props.currentDate}

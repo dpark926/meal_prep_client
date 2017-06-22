@@ -10,18 +10,31 @@ function Planner(props) {
   let todaysMonth = currentDate.getMonth() + 1
   let todaysYear = currentDate.getFullYear()
   let thisWeekDates = [] //array of this current week
+  let nextWeekDates = []
 
   for(var i = -(todaysDay); i < 7 - todaysDay; i ++) {
     thisWeekDates.push(((todaysDate - todaysDay) + (i + todaysDay)).toString())
   }
+  for(var i = -(todaysDay + 7); i < (7 - todaysDay + 7); i ++) {
+    nextWeekDates.push(((todaysDate - todaysDay + 7) + (i + todaysDay + 7)).toString())
+  }
 
   let withinCurrentWeek = []
+  let withinNextWeek = []
 
   if (props.plannerData) {
     withinCurrentWeek = props.plannerData.filter(entry => thisWeekDates.includes(entry.date.slice(8, 10)) )
   }
+  if (props.plannerData) {
+    withinNextWeek = props.plannerData.filter(entry => nextWeekDates.includes(entry.date.slice(8, 10)) )
+  }
 
   let weekObj = {
+    sunB: "Add Meal", monB: "Add Meal", tueB: "Add Meal", wedB: "Add Meal", thuB: "Add Meal", friB: "Add Meal", satB: "Add Meal",
+    sunL: "Add Meal", monL: "Add Meal", tueL: "Add Meal", wedL: "Add Meal", thuL: "Add Meal", friL: "Add Meal", satL: "Add Meal",
+    sunD: "Add Meal", monD: "Add Meal", tueD: "Add Meal", wedD: "Add Meal", thuD: "Add Meal", friD: "Add Meal", satD: "Add Meal",
+  }
+  let nextObj = {
     sunB: "Add Meal", monB: "Add Meal", tueB: "Add Meal", wedB: "Add Meal", thuB: "Add Meal", friB: "Add Meal", satB: "Add Meal",
     sunL: "Add Meal", monL: "Add Meal", tueL: "Add Meal", wedL: "Add Meal", thuL: "Add Meal", friL: "Add Meal", satL: "Add Meal",
     sunD: "Add Meal", monD: "Add Meal", tueD: "Add Meal", wedD: "Add Meal", thuD: "Add Meal", friD: "Add Meal", satD: "Add Meal",
@@ -35,6 +48,15 @@ function Planner(props) {
     // attach meal id somewhere --- need for delete
 
     weekObj[dateMeal] = entry.recipe_name + entry.id
+  }
+  for (var i = 0; i < withinNextWeek.length; i++) {
+    let entry2 = withinNextWeek[i]
+    let date2 = withinNextWeek[i].date.slice(0, 3).toLowerCase()
+    let mealType2 = withinNextWeek[i].meal_type.slice(0, 1)
+    let dateMeal2 = date2 + mealType2
+    // attach meal id somewhere --- need for delete
+
+    nextObj[dateMeal2] = entry2.recipe_name + entry2.id
   }
 
   // let list = []
@@ -50,9 +72,16 @@ function Planner(props) {
 
   let list = Object.values(weekObj).map(function(mealDay) {
     if(mealDay === "Add Meal") {
-      return (<td className="unselected">Add Meal</td>)
+      return (<td className="unselected" id={mealDay.replace(/[0-9]/g, '')}>Add Meal</td>)
     } else {
-      return (<td className="selected">{mealDay.replace(/[0-9]/g, '')}<br/><button onClick={() => parseInt(props.deletePlannerDate(mealDay.slice(-2)))}>DELETE</button></td>)
+      return (<td className="selected" id={mealDay.replace(/[0-9]/g, '')}>{mealDay.replace(/[0-9]/g, '')}<br/><button onClick={() => parseInt(props.deletePlannerDate(mealDay.replace(/\D/g, '')))}>DELETE</button></td>)
+    }
+  })
+  let list2 = Object.values(nextObj).map(function(mealDay) {
+    if(mealDay === "Add Meal") {
+      return (<td className="unselected" id={mealDay.replace(/[0-9]/g, '')}>Add Meal</td>)
+    } else {
+      return (<td className="selected" id={mealDay.replace(/[0-9]/g, '')}>{mealDay.replace(/[0-9]/g, '')}<br/><button onClick={() => parseInt(props.deletePlannerDate(mealDay.replace(/\D/g, '')))}>DELETE</button></td>)
     }
   })
 
@@ -61,7 +90,7 @@ function Planner(props) {
       <div className="planner">
         <button className="accordion" onClick={props.handlePlannerToggle}>Hide Calendar</button>
         <div className='table-padding'>
-          <div className='table'>
+          <div className='table animated slideInDown'>
             <p className='week-range'>WEEK OF: {todaysMonth}/{thisWeekDates[0]} - {todaysMonth}/{thisWeekDates[6]}</p>
             <table>
 
@@ -82,7 +111,7 @@ function Planner(props) {
                 <td className="unselected"><div>{weekObj.thuB}</div></td>
                 <td className="unselected"><div>{weekObj.friB}</div></td>
                 <td className="unselected"><div>{weekObj.satB}</div></td> */}
-                {list.slice(0, 7)}
+                {list2.slice(0, 7)}
               </tr>
               <tr>
                 {/* <td className="unselected"><div>{weekObj.sunL}</div></td>
@@ -92,7 +121,7 @@ function Planner(props) {
                 <td className="unselected"><div>{weekObj.thuL}</div></td>
                 <td className="unselected"><div>{weekObj.friL}</div></td>
                 <td className="unselected"><div>{weekObj.satL}</div></td> */}
-                {list.slice(7, 14)}
+                {list2.slice(7, 14)}
               </tr>
               <tr>
                 {/* <td className="unselected"><div>{weekObj.sunD}</div></td>
@@ -102,7 +131,7 @@ function Planner(props) {
                 <td className="unselected"><div>{weekObj.thuD}</div></td>
                 <td className="unselected"><div>{weekObj.friD}</div></td>
                 <td className="unselected"><div>{weekObj.satD}</div></td> */}
-                {list.slice(14, 21)}
+                {list2.slice(14, 21)}
               </tr>
             </table>
           </div>

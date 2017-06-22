@@ -149,7 +149,7 @@ class RecipesContainer extends Component {
   render() {
     return (
       <div>
-          <div className='planner-searchbar'>
+          <div className='planner-searchbar animated fadeInRight'>
             <div className="planner-button">
               <Planner
                 toggleState={this.state.plannerToggle}

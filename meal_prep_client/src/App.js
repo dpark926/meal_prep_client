@@ -26,7 +26,7 @@ class App extends Component {
       )
     } else {
       return (
-        <div className="App">
+        <div className="App animated fadeIn">
           <NavBar />
           <div className="below-nav">
             <Redirect to='/' />
