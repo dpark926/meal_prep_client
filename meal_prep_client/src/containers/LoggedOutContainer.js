@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
 import Homepage from '../components/Homepage'
 import RecipeList from '../components/RecipeList'
+import RecipeShow from '../components/RecipeShow'
 
 class RecipesContainer extends Component {
   constructor() {
@@ -11,6 +12,7 @@ class RecipesContainer extends Component {
       searchTerm: '',
       recipeData: [],
       clickedRecipe: '',
+      clickedId: 0
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -35,11 +37,11 @@ class RecipesContainer extends Component {
     }))
   }
 
-  handleClick(event) {
-    event.preventDefault()
-    console.log("handleClick!")
+  handleClick(event, recipeId) {
+    // debugger
     this.setState({
-      clickedRecipe: event.target.innerText
+      clickedRecipe: event.target.innerText,
+      clickedId: recipeId
     })
   }
 
@@ -48,13 +50,32 @@ class RecipesContainer extends Component {
     return (
       <div>
         < Route exact path="/" render={() => < Homepage recipeData={this.state.recipeData} handleClick={this.handleClick}/>}/><br/>
-        < Route path="/recipes" render={() => < RecipeList
+        < Route exact path="/recipes" render={() => < RecipeList
+          // recipeData={this.state.recipeData}
+          // searchTerm={this.state.searchTerm}
+          // handleClick={this.handleClick}
+          // onChange={this.handleChange}
+          // clickedRecipe={this.state.clickedRecipe}
+
           recipeData={this.state.recipeData}
           searchTerm={this.state.searchTerm}
           handleClick={this.handleClick}
+          handleIdClick={this.handleIdClick}
           onChange={this.handleChange}
           clickedRecipe={this.state.clickedRecipe}
-        />}/><br/>
+          clickedId={this.state.clickedId}
+        />}/>
+        < Route exact path={`/recipes/${this.state.clickedId}`} render={() => <RecipeShow
+          recipeData={this.state.recipeData}
+          clickedRecipe={this.state.clickedRecipe}
+          // currentDate={this.state.currentDate}
+          // selectedDate={this.state.selectedDate}
+          // onSelect={this.handleDate}
+          // selectedMealTime={this.state.selectedMealTime}
+          // handleMealTime={this.handleMealTime}
+          // addToPlanner={this.addToPlanner}
+          clickedId={this.state.clickedId}/>
+        }/>
       </div>
     )
   }

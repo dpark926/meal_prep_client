@@ -63,10 +63,10 @@ function recipeList(props) {
         {/* <h2>Recipe List</h2> */}
         {list}
 
-        <RecipeShow
+        {/* <RecipeShow
           recipeData={props.recipeData}
           clickedRecipe={props.clickedRecipe}
-        /><br/>
+        /><br/> */}
       </div>
     )
   } else {
@@ -102,7 +102,7 @@ function recipeList(props) {
           <Route path='/recipes/new' component={RecipeNew} />
         </Switch> */}
 
-        <RecipeShow
+        {/* <RecipeShow
           recipeData={props.recipeData}
           clickedRecipe={props.clickedRecipe}
           currentDate={props.currentDate}
@@ -111,7 +111,8 @@ function recipeList(props) {
           selectedMealTime={props.selectedMealTime}
           handleMealTime={props.handleMealTime}
           addToPlanner={props.addToPlanner}
-        /><br/>
+          clickedId={props.clickedId}
+        /><br/> */}
 
       </div>
     );

@@ -21,7 +21,7 @@ a:hover {
 .nav {
   /*border: 1px solid red;*/
   width: 100%;
-  background-color: #ffeead;
+  background-color: #f1f5e9;
   position: fixed;
   z-index: 200;
 }

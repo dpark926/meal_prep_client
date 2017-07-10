@@ -7,7 +7,7 @@ import Homepage from '../components/Homepage'
 import RecipeList from '../components/RecipeList'
 import Planner from '../components/Planner'
 import RecipeNew from '../components/RecipeNew'
-// import RecipeShow from '../components/RecipeShow'
+import RecipeShow from '../components/RecipeShow'
 import axios from 'axios'
 
 class RecipesContainer extends Component {
@@ -24,7 +24,8 @@ class RecipesContainer extends Component {
       selectedMealTime: 'SELECT MEAL',
       plannerToggle: false,
       shoppingListToggle: false,
-      plannerData: []
+      plannerData: [],
+      mealToggle: true
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -35,6 +36,7 @@ class RecipesContainer extends Component {
     this.handleShoppingToggle = this.handleShoppingToggle.bind(this)
     this.addToPlanner = this.addToPlanner.bind(this)
     this.deletePlannerDate = this.deletePlannerDate.bind(this)
+    this.handleMealToggle = this.handleMealToggle.bind(this)
   }
 
   handleChange(event) {
@@ -69,6 +71,12 @@ class RecipesContainer extends Component {
     })
   }
 
+  handleMealToggle() {
+    this.setState({
+      mealToggle: !this.state.mealToggle
+    })
+  }
+
   componentWillMount() {
     const URL = 'http://localhost:3000/api/v1/recipes'
 
@@ -93,7 +101,7 @@ class RecipesContainer extends Component {
 
   handleClick(event, recipeId) {
     Perf.start()
-    event.preventDefault()
+    // event.preventDefault()
     console.log("handleClick!")
     console.log(recipeId)
     console.log(event.target.innerText)
@@ -160,6 +168,8 @@ class RecipesContainer extends Component {
                 clickedRecipe={this.state.clickedRecipe}
                 recipeData={this.state.recipeData}
                 deletePlannerDate={this.deletePlannerDate}
+                mealToggle={this.state.mealToggle}
+                handleMealToggle={this.handleMealToggle}
               />
             </div>
           </div>
@@ -177,9 +187,10 @@ class RecipesContainer extends Component {
             selectedMealTime={this.state.selectedMealTime}
             handleMealTime={this.handleMealTime}
             addToPlanner={this.addToPlanner}
+            clickedId={this.state.clickedId}
           />}/>
           < Route exact path='/recipes/new' component={RecipeNew} />
-          {/* < Route exact path='/recipes/1' render={<RecipeShow
+          < Route exact path={`/recipes/${this.state.clickedId}`} render={() => <RecipeShow
             recipeData={this.state.recipeData}
             clickedRecipe={this.state.clickedRecipe}
             currentDate={this.state.currentDate}
@@ -187,8 +198,9 @@ class RecipesContainer extends Component {
             onSelect={this.handleDate}
             selectedMealTime={this.state.selectedMealTime}
             handleMealTime={this.handleMealTime}
-            addToPlanner={this.addToPlanner}/>
-          }/> */}
+            addToPlanner={this.addToPlanner}
+            clickedId={this.state.clickedId}/>
+          }/>
       </div>
     )
 

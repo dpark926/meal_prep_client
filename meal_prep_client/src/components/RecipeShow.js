@@ -55,7 +55,7 @@ function recipeShow(props) {
     img9, img10, img11, img12, img13, img14, img15, img16
   ]
 
-  var list = newArray.map( (recipe, i) =>
+  var list = newArray.map( (recipe) =>
     (
     <div className='recipe-upper'>
       <div className='recipe-name'>
@@ -63,7 +63,7 @@ function recipeShow(props) {
         <p>{recipe.name.toUpperCase()}</p>
       </div>
       <div className='recipe-show-img'>
-        <img src={imgArray[i]} alt="food-pic-sample" height="100%" width="100%"></img>
+        <img src={imgArray[props.clickedId]} alt="food-pic-sample" height="100%" width="100%"></img>
       </div>
 
       <div className='recipe-name-ingredient'>

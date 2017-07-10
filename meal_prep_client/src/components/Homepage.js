@@ -19,31 +19,35 @@ function Homepage(props) {
         </div>
 
         <h3>Featured Recipes</h3>
-        <div className="buttons">
-          <Link to='/recipes'><img src={button1}></img></Link>
-        </div>
+        <div className='row-container'>
+          <div className="buttons">
+            <Link to='/recipes'><img src={button1}></img></Link>
+          </div>
 
-        <div className="buttons">
-          <Link to='/recipes'><img src={button2}></img></Link>
-        </div>
+          <div className="buttons">
+            <Link to='/recipes'><img src={button2}></img></Link>
+          </div>
 
-        <div className="buttons">
-          <Link to='/recipes'><img src={button3}></img></Link>
-        </div>
-
-
-        <div className="recipe-featured-box">
-          <a href='#'><h4 onClick={props.handleClick}>{array[0].name}</h4></a>
+          <div className="buttons">
+            <Link to='/recipes'><img src={button3}></img></Link>
+          </div>
         </div>
 
 
-        <div className="recipe-featured-box">
-          <a href='#'><h4 onClick={props.handleClick}>{array[2].name}</h4></a>
-        </div>
+        <div className='row-container'>
+          <div className="recipe-featured-box">
+            <a href='#'><h4 onClick={props.handleClick}>{array[0].name}</h4></a>
+          </div>
 
 
-        <div className="recipe-featured-box">
-          <a href='#'><h4 onClick={props.handleClick}>{array[3].name}</h4></a>
+          <div className="recipe-featured-box">
+            <a href='#'><h4 onClick={props.handleClick}>{array[2].name}</h4></a>
+          </div>
+
+
+          <div className="recipe-featured-box">
+            <a href='#'><h4 onClick={props.handleClick}>{array[3].name}</h4></a>
+          </div>
         </div>
 
       </div>
