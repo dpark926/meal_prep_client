@@ -58,7 +58,7 @@ function recipeList(props) {
 
   if (!localStorage.getItem('token')) {
     return (
-      <div className="recipe-list">
+      <div className="recipe-list-out">
         <RecipeSearch onChange={props.onChange}/><br/>
         {/* <h2>Recipe List</h2> */}
         {list}
@@ -71,7 +71,7 @@ function recipeList(props) {
     )
   } else {
     return (
-      <div className="recipe-list">
+      <div className="recipe-list-in">
         <RecipeSearch onChange={props.onChange}/><br/>
         {/* <h2>Recipe List</h2> */}
         {list}

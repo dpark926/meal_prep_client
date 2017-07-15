@@ -16,17 +16,12 @@ function Planner(props) {
     thisWeekDates.push(((todaysDate - todaysDay) + (i + todaysDay)).toString())
     nextWeekDates.push(((todaysDate - todaysDay) + (i + todaysDay + 7)).toString())
   }
-  // for(var y = -(todaysDay + 7); y < (7 - todaysDay + 7); y ++) {
-  //   nextWeekDates.push(((todaysDate - todaysDay + 7) + (y + todaysDay + 7)).toString())
-  // }
 
   let withinCurrentWeek = []
   let withinNextWeek = []
 
   if (props.plannerData) {
     withinCurrentWeek = props.plannerData.filter(entry => thisWeekDates.includes(entry.date.slice(8, 10)) )
-  }
-  if (props.plannerData) {
     withinNextWeek = props.plannerData.filter(entry => nextWeekDates.includes(entry.date.slice(8, 10)) )
   }
 
@@ -59,12 +54,7 @@ function Planner(props) {
   }
 
   let list = Object.values(weekObj).map(function(mealDay) {
-    // if (Object.keys(mealDay).join('').slice(0, 3) === days[todaysDay].toLowerCase().slice(0, 3)) {
-    //   debugger
-    //   return (<td className="today-day" id={mealDay.replace(/[0-9]/g, '')}>Add Meal</td>)
-    // }
     if(mealDay === "Add Meal") {
-      // debugger
       return (<td className="unselected" id={mealDay.replace(/[0-9]/g, '')}>Add Meal</td>)
     } else {
       return (<td className="selected" id={mealDay.replace(/[0-9]/g, '')}>{mealDay.replace(/[0-9]/g, '')}<br/><button className='delete' onClick={() => parseInt(props.deletePlannerDate(mealDay.replace(/\D/g, '')))}>DELETE</button></td>)

@@ -47,8 +47,6 @@ function recipeShow(props) {
       <p>{ingredient.name}</p>
     </div>
   )
-  // debugger
-  // console.log(ingredientList)
 
   let imgArray = [
     img1, img2, img3, img4, img5, img6, img7, img8,
@@ -59,7 +57,6 @@ function recipeShow(props) {
     (
     <div className='recipe-upper'>
       <div className='recipe-name'>
-      {/* <div className='recipe-name' id={`${recipe.id}`}> */}
         <p>{recipe.name.toUpperCase()}</p>
       </div>
       <div className='recipe-show-img'>
@@ -72,8 +69,6 @@ function recipeShow(props) {
           {ingredientList}
         </div>
         <div className='recipe-instructions'>
-          {/* <h4>Calories: {recipe.calories}</h4> */}
-          {/* <p>Recipe ID: {recipe.id}</p> */}
           <h5>INSTRUCTIONS </h5>
           <p>{recipe.instructions}</p>
         </div>
@@ -84,14 +79,13 @@ function recipeShow(props) {
 
   if (!localStorage.getItem('token')) {
     return (
-      <div className="recipe-show">
-        {/* <h1>Recipe Show</h1> */}
+      <div className="recipe-show-out">
         {list}
       </div>
     )
   } else {
     return (
-      <div className="recipe-show">
+      <div className="recipe-show-in">
         {/* <h1>Recipe Show</h1> */}
         {list}
         <AddToPlanner

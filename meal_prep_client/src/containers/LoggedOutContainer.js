@@ -38,7 +38,6 @@ class RecipesContainer extends Component {
   }
 
   handleClick(event, recipeId) {
-    // debugger
     this.setState({
       clickedRecipe: event.target.innerText,
       clickedId: recipeId
@@ -48,15 +47,9 @@ class RecipesContainer extends Component {
   render() {
 
     return (
-      <div>
+      <div className="below-nav-logged-out">
         < Route exact path="/" render={() => < Homepage recipeData={this.state.recipeData} handleClick={this.handleClick}/>}/><br/>
         < Route exact path="/recipes" render={() => < RecipeList
-          // recipeData={this.state.recipeData}
-          // searchTerm={this.state.searchTerm}
-          // handleClick={this.handleClick}
-          // onChange={this.handleChange}
-          // clickedRecipe={this.state.clickedRecipe}
-
           recipeData={this.state.recipeData}
           searchTerm={this.state.searchTerm}
           handleClick={this.handleClick}
@@ -68,12 +61,6 @@ class RecipesContainer extends Component {
         < Route exact path={`/recipes/${this.state.clickedId}`} render={() => <RecipeShow
           recipeData={this.state.recipeData}
           clickedRecipe={this.state.clickedRecipe}
-          // currentDate={this.state.currentDate}
-          // selectedDate={this.state.selectedDate}
-          // onSelect={this.handleDate}
-          // selectedMealTime={this.state.selectedMealTime}
-          // handleMealTime={this.handleMealTime}
-          // addToPlanner={this.addToPlanner}
           clickedId={this.state.clickedId}/>
         }/>
       </div>

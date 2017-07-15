@@ -1,12 +1,22 @@
 /* Recipe Show */
-.recipe-show {
+.recipe-show-in {
   /*border: 1px solid blue;*/
-}
-
-.recipe-upper {
   margin: 20px;
   /*border: 1px solid green;*/
   padding: 20px;
+}
+
+.recipe-show-out {
+  /*border: 1px solid blue;*/
+  margin: 20px;
+  /*border: 1px solid green;*/
+  padding: 0px 20px 20px 20px;
+}
+
+.recipe-upper {
+  /*margin: 20px;
+  border: 1px solid green;
+  padding: 20px;*/
 }
 
 .recipe-show-img {

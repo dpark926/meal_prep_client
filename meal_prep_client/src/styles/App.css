@@ -27,7 +27,12 @@ a:hover {
 }
 
 .below-nav {
-  padding-top: 81px
+  padding-top: 81px;
+}
+
+.below-nav-logged-out {
+  padding-top: 81px;
+  /*border: 1px solid red;*/
 }
 
 .App-header {
@@ -72,12 +77,44 @@ a:hover {
 
 .login {
   padding-bottom: 10px;
-  padding-top: 81px;
+  padding-top: 41px;
+}
+
+.login-box {
+  text-align: center;
+  width: 250px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 8px 20px 8px 0px;
+}
+
+.submit-box {
+  text-align: center;
+  width: 250px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: #81ccae;
+  color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 8px 20px 8px 0px;
+}
+
+.submit-box:hover {
+  background-color: #c1ffb6;
+  color: black;
 }
 
 .signup {
   padding-bottom: 10px;
-  padding-top: 81px;
+  padding-top: 41px;
 }
 
 .login-link {
